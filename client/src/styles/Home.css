@@ -1,0 +1,15 @@
+/* Home.css */
+.home {
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    color: #666;
+}
