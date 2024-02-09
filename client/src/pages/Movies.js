@@ -40,7 +40,7 @@ const dummyMovies = [
     title: "Movie Title 2",
     description: "This is a detailed description of Movie Title 2. Include information like cast members, the director's vision, movie duration, genres it belongs to, and a comprehensive story outline.",
     releaseDate: "2024-02-15",
-    img: "./assets/2.jpg",
+    img: "/assets/2.jpg",
     status: "ComingSoon",
   },
   {
@@ -48,7 +48,7 @@ const dummyMovies = [
     title: "Movie Title 2",
     description: "This is a detailed description of Movie Title 2. Include information like cast members, the director's vision, movie duration, genres it belongs to, and a comprehensive story outline.",
     releaseDate: "2024-02-15",
-    img: "./assets/2.jpg",
+    img: "/assets/2.jpg",
     status: "ComingSoon",
   },
   {
@@ -56,7 +56,7 @@ const dummyMovies = [
     title: "Movie Title 2",
     description: "This is a detailed description of Movie Title 2. Include information like cast members, the director's vision, movie duration, genres it belongs to, and a comprehensive story outline.",
     releaseDate: "2024-02-15",
-    img: "./assets/2.jpg",
+    img: "/assets/2.jpg",
     status: "ComingSoon",
   },
   {
@@ -64,7 +64,7 @@ const dummyMovies = [
     title: "Movie Title 2",
     description: "This is a detailed description of Movie Title 2. Include information like cast members, the director's vision, movie duration, genres it belongs to, and a comprehensive story outline.",
     releaseDate: "2024-02-15",
-    img: "./assets/2.jpg",
+    img: "/assets/2.jpg",
     status: "ComingSoon",
   },
   {
@@ -72,7 +72,7 @@ const dummyMovies = [
     title: "Movie Title 3",
     description: "This is a detailed description of Movie Title 3. You can discuss the cast, director, how long the movie runs, its genres, and give a full plot summary.",
     releaseDate: "2024-03-23",
-    img: "./assets/3.jpg",
+    img: "/assets/3.jpg",
     status: "Popular",
   },
   {
@@ -80,7 +80,7 @@ const dummyMovies = [
     title: "Movie Title 3",
     description: "This is a detailed description of Movie Title 3. You can discuss the cast, director, how long the movie runs, its genres, and give a full plot summary.",
     releaseDate: "2024-03-23",
-    img: "./assets/3.jpg",
+    img: "/assets/3.jpg",
     status: "Popular",
   },
   {
@@ -88,7 +88,7 @@ const dummyMovies = [
     title: "Movie Title 3",
     description: "This is a detailed description of Movie Title 3. You can discuss the cast, director, how long the movie runs, its genres, and give a full plot summary.",
     releaseDate: "2024-03-23",
-    img: "./assets/3.jpg",
+    img: "/assets/3.jpg",
     status: "Popular",
   },
   {
@@ -96,7 +96,7 @@ const dummyMovies = [
     title: "Movie Title 3",
     description: "This is a detailed description of Movie Title 3. You can discuss the cast, director, how long the movie runs, its genres, and give a full plot summary.",
     releaseDate: "2024-03-23",
-    img: "./assets/3.jpg",
+    img: "/assets/3.jpg",
     status: "Popular",
   },
 ];

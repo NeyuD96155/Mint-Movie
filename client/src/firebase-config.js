@@ -1,7 +1,7 @@
-
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAnalytics } from "firebase/analytics"; // Import thêm dòng này
 
+import { getAuth } from "firebase/auth"; // Thêm dòng này
 const firebaseConfig = {
   apiKey: "AIzaSyCJFm0soRL14JJECIwInuH_DDtqMz-WuYM",
   authDomain: "mint-movie.firebaseapp.com",
@@ -12,7 +12,14 @@ const firebaseConfig = {
   measurementId: "G-6K4M18D9DX"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-export const auth = getAuth(app);
+
+
+const auth = getAuth(app); // Khởi tạo auth
+// Khởi tạo Firebase Analytics chỉ khi chạy trên trình duyệt và measurementId có sẵn
+let analytics;
+if (typeof window !== "undefined" && "measurementId" in firebaseConfig) {
+  analytics = getAnalytics(app);
+}
+
+export { app, analytics, auth  };

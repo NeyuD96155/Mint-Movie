@@ -1,10 +1,18 @@
+// Trong LogOut.js
+import React from 'react';
+import { auth } from "../firebase-config"; // Sửa đường dẫn nếu cần
 import { signOut } from "firebase/auth";
-import { auth } from './firebase-config';
 
-const logout = () => {
+function LogOut() {
+  const handleLogout = () => {
     signOut(auth).then(() => {
-        // Đăng xuất thành công
+      // Xử lý sau khi đăng xuất thành công
     }).catch((error) => {
-        // An error happened.
+      // Xử lý lỗi
     });
-};
+  };
+
+  return <button onClick={handleLogout}>Đăng Xuất</button>;
+}
+
+export default LogOut;

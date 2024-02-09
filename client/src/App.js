@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase-config"; // Đảm bảo đường dẫn này phù hợp với vị trí của firebase-config trong dự án của bạn
+import { auth } from "./firebase-config";  // Đảm bảo đường dẫn này phù hợp với vị trí của firebase-config trong dự án của bạn
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -12,6 +12,8 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import "./App.css";
 import MovieDetail from "./pages/MovieDetail";
+import LogOut from './auth/LogOut'; // Giả sử 'LogOut' được lưu trong thư mục 'auth'
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -19,14 +21,13 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // Nếu người dùng đã đăng nhập, cập nhật trạng thái xác thực
         setIsAuthenticated(true);
       } else {
-        // Nếu người dùng đã đăng xuất, cập nhật trạng thái xác thực
         setIsAuthenticated(false);
       }
     });
   }, []);
+  
 
   return (
     <Router>
@@ -35,7 +36,7 @@ function App() {
         {isAuthenticated ? (
           <div>
             <p>Chào mừng bạn trở lại!</p>
-            <button onClick={logout}>Đăng Xuất</button>
+            <button onClick={<LogOut/>}>Đăng Xuất</button>
           </div>
         ) : (
           <main>
