@@ -1,0 +1,15 @@
+/* About.css */
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h1 {
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.2em;
+    color: #666;
+    line-height: 1.6;
+}

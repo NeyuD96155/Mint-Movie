@@ -1,0 +1,14 @@
+/* Contact.css */
+.contact {
+    padding: 20px;
+    text-align: center;
+}
+
+.contact h1 {
+    margin-bottom: 20px;
+}
+
+.contact p, .contact-info p {
+    font-size: 1.2em;
+    color: #666;
+}

@@ -1,0 +1,33 @@
+/* SignUp.css */
+.signup {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.signup .form-group {
+    margin-bottom: 15px;
+}
+
+.signup .form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.signup .form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.signup button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
