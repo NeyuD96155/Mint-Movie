@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase-config"; // Đảm bảo đường dẫn này phù hợp với vị trí của firebase-config trong dự án của bạn
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -12,21 +14,45 @@ import "./App.css";
 import MovieDetail from "./pages/MovieDetail";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Nếu người dùng đã đăng nhập, cập nhật trạng thái xác thực
+        setIsAuthenticated(true);
+      } else {
+        // Nếu người dùng đã đăng xuất, cập nhật trạng thái xác thực
+        setIsAuthenticated(false);
+      }
+    });
+  }, []);
+
   return (
     <Router>
       <div className="App">
         <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/movies" element={<Movies />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/movies/:movieId" element={<MovieDetail/>} />
-          </Routes>
-        </main>
+        {isAuthenticated ? (
+          <div>
+            <p>Chào mừng bạn trở lại!</p>
+            <button onClick={logout}>Đăng Xuất</button>
+          </div>
+        ) : (
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/movies" element={<Movies />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              {!isAuthenticated && <Route path="/login" element={<Login />} />}
+              {!isAuthenticated && (
+                <Route path="/signup" element={<SignUp />} />
+              )}
+              <Route path="/movies/:movieId" element={<MovieDetail />} />
+              {/* Có thể thêm các route khác ở đây */}
+            </Routes>
+          </main>
+        )}
         <Footer />
       </div>
     </Router>
