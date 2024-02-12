@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Header.css'; // Ensure you have a CSS file for styling
+import { useAuth } from '../context/AuthContext'; // Đảm bảo đường dẫn đúng
+import '../styles/Header.css';
 
 const Header = () => {
+    const { authData, logout } = useAuth(); // Sử dụng useAuth để truy cập authData và hàm logout
+
     return (
         <header className="header">
             <div className="logo">
@@ -17,8 +20,19 @@ const Header = () => {
                 </ul>
             </nav>
             <div className="header-right">
-                <Link to="/login" className="signin-btn">Login</Link>
-                <Link to="/signup" className="signup-btn">Sign Up</Link>
+                {authData ? (
+                    // Hiển thị khi người dùng đã đăng nhập
+                    <React.Fragment>
+                        <span className="user-email">{authData.email}</span> {/* Giả sử authData chứa email */}
+                        <button onClick={logout} className="logout-btn">Logout</button>
+                    </React.Fragment>
+                ) : (
+                    // Hiển thị khi người dùng chưa đăng nhập
+                    <React.Fragment>
+                        <Link to="/login" className="signin-btn">Login</Link>
+                        <Link to="/signup" className="signup-btn">Sign Up</Link>
+                    </React.Fragment>
+                )}
             </div>
         </header>
     );
